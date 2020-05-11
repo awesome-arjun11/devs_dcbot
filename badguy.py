@@ -193,7 +193,7 @@ async def post_a_question_task():
 async def pin_new_message():
     try:
         channel = bot.get_channel(postdaily['channelid'])
-        newm = await channel.history(limit=1).flatten()[0]
+        newm = (await channel.history(limit=1).flatten())[0]
         if newm.author == bot.user:
             await newm.pin()
     except Exception as e:
@@ -205,7 +205,7 @@ async def pin_new_message():
 async def unpin_old_message():
     try:
         channel = bot.get_channel(postdaily['channelid'])
-        oldm = await channel.history(limit=1).flatten()[0]
+        oldm = (await channel.history(limit=1).flatten())[0]
         if oldm.author == bot.user:
             await oldm.unpin()
     except Exception as e:

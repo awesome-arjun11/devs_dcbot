@@ -13,9 +13,9 @@ class DB:
         'cursorclass': pymysql.cursors.DictCursor
     }
     QUERIES = {
-        'SQL_GET_A_QUES_DIFF': "select * from `q_bank` where `difficulty` = %s and `isdone` == false order by rand() limit 1;",
-        'SQL_GET_A_QUES_TAG': "select * from `q_bank` where `isdone` == false and `tags` like %s order by rand() limit 1;",
-        'SQL_GET_A_QUES_DIFF_TAG': "select * from `q_bank` where `isdone` == false and  `difficulty` = %s and `tags` like %s order by rand() limit 1;",
+        'SQL_GET_A_QUES_DIFF': "select * from `q_bank` where `difficulty` = %s and `isdone` = false order by rand() limit 1;",
+        'SQL_GET_A_QUES_TAG': "select * from `q_bank` where `isdone` = false and `tags` like %s order by rand() limit 1;",
+        'SQL_GET_A_QUES_DIFF_TAG': "select * from `q_bank` where `isdone` = false and  `difficulty` = %s and `tags` like %s order by rand() limit 1;",
         'SQL_SET_DONE': "update `q_bank` set `isdone`=true where id=%s;",
         'SQL_GET_HINT': "select hints, tags from `q_bank` where id = %s;"
     }
